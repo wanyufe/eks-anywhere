@@ -132,6 +132,10 @@ func (p *cloudstackProvider) ValidateNewSpec(ctx context.Context, cluster *types
 		return fmt.Errorf("spec.account is immutable. Previous value %s, new value %s", oSpec.Account, nSpec.Account)
 	}
 
+	if nSpec.ManagementApiEndpoint != oSpec.ManagementApiEndpoint {
+		return fmt.Errorf("spec.managementApiEndpoint is immutable. Previous value %s, new value %s", oSpec.ManagementApiEndpoint, nSpec.ManagementApiEndpoint)
+	}
+
 	return nil
 }
 
